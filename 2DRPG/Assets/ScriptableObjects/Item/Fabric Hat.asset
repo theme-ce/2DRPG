@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3105766f437a77b4d83fd9e3390698f7, type: 3}
+  m_Name: Fabric Hat
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 0}
+  stackable: 0
+  type: 2
+  description: 
+  data:
+    Name: Fabirc Hat
+    Id: 2
+    buffs: []
