@@ -4,5 +4,7 @@ public enum ItemTypes
     Club,
     Helmet,
     ChestPlate,
-    Boots
+    Boots,
+    Ring,
+    Necklace
 }

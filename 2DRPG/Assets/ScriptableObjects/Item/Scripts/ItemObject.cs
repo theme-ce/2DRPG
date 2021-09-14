@@ -11,12 +11,6 @@ public class ItemObject : ScriptableObject
     [TextArea(15, 20)]
     public string description;
     public Item data = new Item();
-
-    public Item CreateItem()
-    {
-        Item newItem = new Item(this);
-        return newItem;
-    }
 }
 
 [System.Serializable]
@@ -25,6 +19,7 @@ public class Item
     public string Name;
     public int Id = -1;
     public ItemBuff[] buffs;
+    public SkillObject[] skills;
     public Item()
     {
         Name = "";
@@ -42,6 +37,7 @@ public class Item
                 attribute = item.data.buffs[i].attribute
             };
         }
+        skills = new SkillObject[item.data.skills.Length];
     }
 }
 

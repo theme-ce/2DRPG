@@ -7,7 +7,6 @@ public class PlayerStatus : MonoBehaviour
     public EquipmentObject equipment;
 
     public Attribute[] attributes;
-    public Attribute Strength => attributes[0];
 
     void Start()
     {

@@ -42,5 +42,9 @@ public class ItemInfo : MonoBehaviour
     public void EquipItem()
     {
         equipment.EquipItem(item);
+
+        inventory.RemoveItem(item);
+
+        Destroy(this.gameObject);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Equipment", menuName = "Equipment")]
+[CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory System/Equipment")]
 public class EquipmentObject : ScriptableObject
 {
     public string savePath;
@@ -47,6 +47,8 @@ public delegate void SlotUpdated(EquipmentSlot _slot);
 public class EquipmentSlot
 {
     public ItemTypes[] AllowedItems = new ItemTypes[0];
+
+    public string SlotName;
 
     [System.NonSerialized]
     public DisplayEquipment parent;

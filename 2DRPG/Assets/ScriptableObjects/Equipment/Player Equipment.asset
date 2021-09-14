@@ -16,30 +16,60 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: ef5356224aeba76459a240dc92527992, type: 2}
   Container:
   - AllowedItems: 0000000001000000
+    SlotName: MainWeapon
     item:
       Name: Wooden Sword
       Id: 4
       buffs:
       - attribute: 0
-        value: 2
+        value: 3
         min: 2
         max: 4
+      skills:
+      - {fileID: 0}
   - AllowedItems: 02000000
+    SlotName: Helmet
     item:
       Name: 
       Id: -1
       buffs: []
+      skills: []
   - AllowedItems: 03000000
+    SlotName: ChestPlate
     item:
       Name: Wooden Armor
       Id: 2
       buffs:
       - attribute: 2
-        value: 5
+        value: 4
         min: 4
         max: 7
+      skills: []
   - AllowedItems: 04000000
+    SlotName: Boots
     item:
       Name: 
       Id: -1
       buffs: []
+      skills: []
+  - AllowedItems: 00000000
+    SlotName: Sub-Weapon
+    item:
+      Name: 
+      Id: -1
+      buffs: []
+      skills: []
+  - AllowedItems: 05000000
+    SlotName: Ring
+    item:
+      Name: 
+      Id: -1
+      buffs: []
+      skills: []
+  - AllowedItems: 06000000
+    SlotName: Necklace
+    item:
+      Name: 
+      Id: -1
+      buffs: []
+      skills: []
