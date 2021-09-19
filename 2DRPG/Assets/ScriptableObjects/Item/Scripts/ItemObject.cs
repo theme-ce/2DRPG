@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemObject : ScriptableObject
 {
     public Sprite uiDisplay;
+    public Sprite itemDisplay;
     public bool stackable;
     public ItemTypes type;
     [TextArea(15, 20)]
@@ -18,6 +19,7 @@ public class Item
 {
     public string Name;
     public int Id = -1;
+    public float attackRange;
     public ItemBuff[] buffs;
     public SkillObject[] skills;
     public Item()
@@ -29,12 +31,14 @@ public class Item
     {
         Name = item.name;
         Id = item.data.Id;
+        attackRange = item.data.attackRange;
         buffs = new ItemBuff[item.data.buffs.Length];
         for (int i = 0; i < buffs.Length; i++)
         {
             buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max)
             {
-                attribute = item.data.buffs[i].attribute
+                attribute = item.data.buffs[i].attribute,
+                modType = item.data.buffs[i].modType
             };
         }
         skills = new SkillObject[item.data.skills.Length];
@@ -42,9 +46,10 @@ public class Item
 }
 
 [System.Serializable]
-public class ItemBuff : IModifier
+public class ItemBuff
 {
     public Attributes attribute;
+    public StatModType modType;
     public int value;
     public int min;
     public int max;
@@ -58,10 +63,5 @@ public class ItemBuff : IModifier
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);
-    }
-
-    public void AddValue(ref int v)
-    {
-        v += value;
     }
 }

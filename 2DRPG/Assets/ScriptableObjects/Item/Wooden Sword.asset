@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3105766f437a77b4d83fd9e3390698f7, type: 3}
   m_Name: Wooden Sword
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 4712874034112268372, guid: c85422039739d334db5b3239527794eb, type: 3}
+  uiDisplay: {fileID: -6739446259698820026, guid: 903ddf94eff496f4fbab4e08ea6ae99c, type: 3}
+  itemDisplay: {fileID: -6739446259698820026, guid: 903ddf94eff496f4fbab4e08ea6ae99c, type: 3}
   stackable: 0
   type: 0
   description: 
   data:
     Name: Wooden Sword
     Id: 4
+    attackRange: 5
     buffs:
     - attribute: 0
+      modType: 100
       value: 0
       min: 2
       max: 4

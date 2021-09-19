@@ -5,16 +5,21 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
     public EquipmentObject equipment;
+    public CharacterStat[] stats;
+    public DisplayEquipment displayEquipment;
 
-    public Attribute[] attributes;
+    public int currentHp;
+    public int maxHp;
+    public int currentMp;
+    public int maxMp;
+    public int attackDamage;
+    public int defense;
+    public int dodge;
+    public int crit;
+    public float attackRange;
 
     void Start()
     {
-        for (int i = 0; i < attributes.Length; i++)
-        {
-            attributes[i].SetParent(this);
-        }
-        
         for (int i = 0; i < equipment.Container.Count; i++)
         {
             equipment.Container[i].OnBeforeUpdated += OnUnEquipItem;
@@ -23,43 +28,46 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public void AttributeModified(Attribute attribute)
-    {
-        Debug
-            .Log(string
-                .Concat(attribute.type,
-                " was updated! Value is now ",
-                attribute.value.ModifiedValue));
-    }
-
     public void OnUnEquipItem(EquipmentSlot slot)
     {
-        if(slot.item == null) return;
+        if(slot.item.Id == -1) return;
 
         for (int i = 0; i < slot.item.buffs.Length; i++)
         {
-            for (int j = 0; j < attributes.Length; j++)
+            for (int k = 0; k < stats.Length; k++)
             {
-                if(slot.item.buffs[i].attribute == attributes[j].type)
-                {
-                    attributes[j].value.RemoveModifier(slot.item.buffs[i]);
-                }
+                stats[k].ModifiedValue = stats[k].BaseValue;
+                stats[k].RemoveAllModifiersFromSource(slot.item);
+                stats[k].ModifiedValue = stats[k].Value;
+            }
+
+            if(slot.SlotName == "MainWeapon")
+            {
+                attackRange = 0;
             }
         }
     }
 
     public void OnEquipItem(EquipmentSlot slot)
     {
-        if(slot.item == null) return;
+        displayEquipment.EquipmentUpdate(slot);
+
+        if(slot.item.Id == -1) return;
 
         for (int i = 0; i < slot.item.buffs.Length; i++)
         {
-            for (int j = 0; j < attributes.Length; j++)
+            for (int k = 0; k < stats.Length; k++)
             {
-                if(slot.item.buffs[i].attribute == attributes[j].type)
+                if(slot.item.buffs[i].attribute == stats[k].type)
                 {
-                    attributes[j].value.AddModifier(slot.item.buffs[i]);
+                    stats[k].AddModifier(new StatModifier(slot.item.buffs[i].value, slot.item.buffs[i].modType, slot.item));
+                    stats[k].ModifiedValue = stats[k].Value;
                 }
+            }
+
+            if(slot.SlotName == "MainWeapon")
+            {
+                attackRange = slot.item.attackRange;
             }
         }
     }

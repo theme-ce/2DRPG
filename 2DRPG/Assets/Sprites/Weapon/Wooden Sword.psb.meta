@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c85422039739d334db5b3239527794eb
+guid: 903ddf94eff496f4fbab4e08ea6ae99c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -27,7 +27,7 @@ ScriptedImporter:
     vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 1
+    spriteMode: 2
     spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
@@ -46,7 +46,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -67,18 +67,18 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: Sword_Icon_1
+  - name: 
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 300
-      height: 300
-    spriteID: 7f6cf76fb64356e4fb7ec6c63e287bfc
+      width: 0
+      height: 0
+    spriteID: 
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -91,18 +91,18 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Background
+  - name: WoodenSword
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.10808952}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 300
-      height: 300
-    spriteID: 559ea16576e396446bccc19b8f33e2a8
+      width: 87
+      height: 394
+    spriteID: 71ac3a369be213741a097a229dbb09d2
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -112,13 +112,13 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -452, y: -209}
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -129,7 +129,7 @@ ScriptedImporter:
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -140,7 +140,7 @@ ScriptedImporter:
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -151,7 +151,7 @@ ScriptedImporter:
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -162,7 +162,7 @@ ScriptedImporter:
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -173,26 +173,26 @@ ScriptedImporter:
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 512
+  importedTextureWidth: 128
   importedTextureHeight: 512
-  documentSize: {x: 300, y: 300}
+  documentSize: {x: 1000, y: 1000}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 300
-  textureActualHeight: 300
+  textureActualWidth: 128
+  textureActualHeight: 512
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Background
-    spriteName: Background
+  - name: WoodenSword
+    spriteName: WoodenSword
     isGroup: 0
     parentIndex: -1
-    spriteID: 559ea16576e396446bccc19b8f33e2a8
-    layerID: 0
+    spriteID: 71ac3a369be213741a097a229dbb09d2
+    layerID: 7
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []
@@ -200,7 +200,7 @@ ScriptedImporter:
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: Sword_Icon Texture
-  prefabAssetName: Sword_Icon Prefab
-  spriteLibAssetName: Sword_Icon Sprite Lib
+  textureAssetName: Wooden Sword Texture
+  prefabAssetName: Wooden Sword Prefab
+  spriteLibAssetName: Wooden Sword Sprite Lib
   secondarySpriteTextures: []

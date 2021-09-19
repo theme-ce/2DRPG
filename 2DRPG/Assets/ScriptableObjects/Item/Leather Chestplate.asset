@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3105766f437a77b4d83fd9e3390698f7, type: 3}
-  m_Name: Wooden Armor
+  m_Name: Leather Chestplate
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 7361416867643441300, guid: 02aa197ca4d3047438d46b942213d562, type: 3}
+  uiDisplay: {fileID: -4844084591605179700, guid: df638114f25d9c749b2eec270f4eb951, type: 3}
+  itemDisplay: {fileID: -4844084591605179700, guid: df638114f25d9c749b2eec270f4eb951, type: 3}
   stackable: 0
   type: 3
   description: 
   data:
-    Name: Wooden Armor
+    Name: Leather Chestplate
     Id: 2
+    attackRange: 0
     buffs:
     - attribute: 2
+      modType: 100
       value: 0
       min: 4
       max: 7
+    skills: []

@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
 
     private float attackDuration = 1.5f;
 
-    public bool haveEnemy;
+    private PlayerStatus status;
 
-    public float attackRange = 1.5f;
+    public bool haveEnemy;
 
     public InventoryObject inventory;
 
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        status = GetComponent<PlayerStatus>();
 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
                 _moveDestination =
                     Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                agent.stoppingDistance = attackRange;
+                agent.stoppingDistance = status.attackRange;
 
                 agent.SetDestination (_moveDestination);
             }
@@ -105,7 +106,10 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        currentTarget.GetComponent<Status>().TakeDamage(2);
+        if(currentTarget != null)
+        {
+            currentTarget.GetComponent<EnemyController>().TakeDamage(2);
+        }
     }
 
     IEnumerator AttackAnim()
@@ -147,6 +151,7 @@ public class PlayerController : MonoBehaviour
             if (currentTarget != null && !haveEnemy)
             {
                 haveEnemy = true;
+                Debug.Log("Start Attack");
                 StartCoroutine(AttackAnim());
             }
             else if (currentTarget == null && haveEnemy)

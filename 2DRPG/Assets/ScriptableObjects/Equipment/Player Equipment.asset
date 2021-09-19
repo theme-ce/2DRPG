@@ -20,8 +20,10 @@ MonoBehaviour:
     item:
       Name: Wooden Sword
       Id: 4
+      attackRange: 1.5
       buffs:
       - attribute: 0
+        modType: 100
         value: 3
         min: 2
         max: 4
@@ -32,6 +34,7 @@ MonoBehaviour:
     item:
       Name: 
       Id: -1
+      attackRange: 0
       buffs: []
       skills: []
   - AllowedItems: 03000000
@@ -39,9 +42,11 @@ MonoBehaviour:
     item:
       Name: Wooden Armor
       Id: 2
+      attackRange: 0
       buffs:
       - attribute: 2
-        value: 4
+        modType: 100
+        value: 5
         min: 4
         max: 7
       skills: []
@@ -50,13 +55,15 @@ MonoBehaviour:
     item:
       Name: 
       Id: -1
+      attackRange: 0
       buffs: []
       skills: []
   - AllowedItems: 00000000
-    SlotName: Sub-Weapon
+    SlotName: SubWeapon
     item:
       Name: 
       Id: -1
+      attackRange: 0
       buffs: []
       skills: []
   - AllowedItems: 05000000
@@ -64,6 +71,7 @@ MonoBehaviour:
     item:
       Name: 
       Id: -1
+      attackRange: 0
       buffs: []
       skills: []
   - AllowedItems: 06000000
@@ -71,5 +79,6 @@ MonoBehaviour:
     item:
       Name: 
       Id: -1
+      attackRange: 0
       buffs: []
       skills: []

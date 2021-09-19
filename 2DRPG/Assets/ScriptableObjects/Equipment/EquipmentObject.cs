@@ -8,11 +8,16 @@ public class EquipmentObject : ScriptableObject
 
     public ItemDatabaseObject database;
 
-    public List<EquipmentSlot> Container = new List<EquipmentSlot>(4);
+    public List<EquipmentSlot> Container = new List<EquipmentSlot>(7);
 
     public void EquipItem(Item item)
     {
         SlotForItem(item).UpdateSlot(item);
+    }
+
+    public void UnEquipItem(Item item)
+    {
+        SlotForItem(item).UpdateSlot(new Item());
     }
 
     public EquipmentSlot FindItemSlot(Item item)
@@ -49,7 +54,7 @@ public class EquipmentSlot
     public ItemTypes[] AllowedItems = new ItemTypes[0];
 
     public string SlotName;
-
+    
     [System.NonSerialized]
     public DisplayEquipment parent;
 

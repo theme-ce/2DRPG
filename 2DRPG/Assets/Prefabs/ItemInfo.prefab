@@ -127,10 +127,13 @@ MonoBehaviour:
   item:
     Name: 
     Id: -1
+    attackRange: 0
     buffs: []
     skills: []
+  fromInventory: 0
   weaponName: {fileID: 6793228350013915407}
   weaponBuffs: {fileID: 6429676668872814137}
+  equipText: {fileID: 4749879120361473412}
   inventory: {fileID: 11400000, guid: 2277ed9f98c3c094bb5085d6eb00a848, type: 2}
   equipment: {fileID: 11400000, guid: c8199420dcf44d94785bc9710311010f, type: 2}
 --- !u!1 &1124961407075437250
@@ -389,7 +392,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8427108720865546757}
         m_TargetAssemblyTypeName: ItemInfo, Assembly-CSharp
-        m_MethodName: EquipItem
+        m_MethodName: InteractItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -947,7 +950,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragRectTransform: {fileID: 2553615621166554611}
   canvas: {fileID: 0}
-  backgroundImage: {fileID: 3822091996528535036}
 --- !u!1 &7147546107878861647
 GameObject:
   m_ObjectHideFlags: 0

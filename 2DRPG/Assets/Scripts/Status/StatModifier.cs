@@ -1,90 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public delegate void ModifiedEvent();
-
-[System.Serializable]
 public class StatModifier
 {
-    [SerializeField]
-    private int baseValue;
+    public readonly float Value;
+    public readonly StatModType Type;
+    public readonly int Order;
+    public readonly object Source;
 
-    public int BaseValue
+    public StatModifier(float value, StatModType type, int order, object source)
     {
-        get
-        {
-            return baseValue;
-        }
-        set
-        {
-            baseValue = value; 
-            UpdateModifedValue();
-        }
+        Value = value;
+        Type = type;
+        Order = order;
+        Source = source;
     }
 
-    [SerializeField]
-    private int modifiedValue;
+    public StatModifier(float value, StatModType type) : this(value, type, (int)type, null) { }
 
-    public int ModifiedValue
-    {
-        get
-        {
-            return modifiedValue;
-        }
-        private
-        set
-        {
-            modifiedValue = value;
-        }
-    }
+    public StatModifier(float value, StatModType type, int order) : this(value, type, order, null) { }
 
-    public List<IModifier> modifiers = new List<IModifier>();
-
-    public event ModifiedEvent ValueModified;
-
-    public StatModifier(ModifiedEvent method = null)
-    {
-        ModifiedValue = BaseValue;
-        if(method != null)
-        {
-            ValueModified += method;
-        }
-    }
-
-    public void RegisterModEvent(ModifiedEvent method)
-    {
-        ValueModified += method;
-    }
-
-    public void UnregisterModEvent(ModifiedEvent method)
-    {
-        ValueModified -= method;
-    }
-
-    public void UpdateModifedValue()
-    {
-        var valueToAdd = 0;
-        for (int i = 0; i < modifiers.Count; i++)
-        {
-            modifiers[i].AddValue(ref valueToAdd);
-        }
-        ModifiedValue = baseValue + valueToAdd;
-        if(ValueModified != null)
-        {
-            ValueModified.Invoke();
-        }
-    }
-
-    public void AddModifier(IModifier _modifier)
-    {
-        modifiers.Add(_modifier);
-        UpdateModifedValue();
-    }
-
-    public void RemoveModifier(IModifier _modifier)
-    {
-        modifiers.Remove(_modifier);
-        UpdateModifedValue();
-    }
+    public StatModifier(float value, StatModType type, object source) : this(value, type, (int)type, source) { }
 }

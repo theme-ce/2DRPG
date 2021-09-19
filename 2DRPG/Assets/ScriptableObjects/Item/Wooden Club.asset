@@ -19,8 +19,11 @@ MonoBehaviour:
   data:
     Name: Wooden Club
     Id: 3
+    attackRange: 1.5
     buffs:
     - attribute: 0
+      modType: 100
       value: 0
       min: 4
       max: 7
+    skills: []

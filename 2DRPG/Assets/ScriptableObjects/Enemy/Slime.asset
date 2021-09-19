@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3105766f437a77b4d83fd9e3390698f7, type: 3}
-  m_Name: Leather Shoes
+  m_Script: {fileID: 11500000, guid: b84f8632560b52143b9ce8b7b9cc6882, type: 3}
+  m_Name: Slime
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
-  stackable: 0
-  type: 4
-  description: 
-  data:
-    Name: Leather Shoes
-    Id: 1
-    attackRange: 0
-    buffs: []
-    skills: []
+  name: Slime
+  maxHp: 10
+  attackDamage: 2
+  attackRange: 3
+  defense: 2
+  dodge: 2
+  detectionRadius: 3

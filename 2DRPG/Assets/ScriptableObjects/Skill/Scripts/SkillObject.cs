@@ -1,6 +1,3 @@
-using System.Net.Mime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Skill", menuName = "Skills/Skill")]
@@ -18,6 +15,8 @@ public class Skill
 {
     public string Name;
     public int Id;
-    public int damage;
+    public int damageMax;
+    public int damageMin;
+    public float cooldown;
 }
 

@@ -14,5 +14,6 @@ public class SelectItem : MonoBehaviour
         var obj = Instantiate(itemInfo, Vector3.zero, Quaternion.identity, transform.parent.parent.parent.parent);
 
         obj.GetComponent<ItemInfo>().item = this.item;
+        obj.GetComponent<ItemInfo>().fromInventory = true;
     }
 }
