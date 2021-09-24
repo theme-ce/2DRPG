@@ -9,13 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a425308ca009efd46b112170c5028a49, type: 3}
-  m_Name: Swing
+  m_Script: {fileID: 11500000, guid: b84f8632560b52143b9ce8b7b9cc6882, type: 3}
+  m_Name: Goblin
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
-  type: 0
-  description: 
-  data:
-    Name: 
-    Id: 0
-    damage: 0
+  name: Goblin
+  maxHp: 40
+  attackDamage: 5
+  attackRange: 5
+  defense: 5
+  dodge: 0
+  detectionRadius: 10
+  moveSpeed: 6
+  expDrop: 30
+  goldDrop: 20
+  items: []

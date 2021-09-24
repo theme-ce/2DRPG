@@ -19,16 +19,22 @@ MonoBehaviour:
     SlotName: MainWeapon
     item:
       Name: Wooden Sword
-      Id: 4
-      attackRange: 1.5
+      Id: 3
+      attackRange: 5
       buffs:
       - attribute: 0
         modType: 100
         value: 3
         min: 2
         max: 4
-      skills:
-      - {fileID: 0}
+      - attribute: 5
+        modType: 100
+        value: 10
+        min: 10
+        max: 15
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 0}
+      mobilitySkill: {fileID: 0}
   - AllowedItems: 02000000
     SlotName: Helmet
     item:
@@ -36,20 +42,29 @@ MonoBehaviour:
       Id: -1
       attackRange: 0
       buffs: []
-      skills: []
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 0}
+      mobilitySkill: {fileID: 0}
   - AllowedItems: 03000000
     SlotName: ChestPlate
     item:
-      Name: Wooden Armor
-      Id: 2
+      Name: Leather Chestplate
+      Id: 1
       attackRange: 0
       buffs:
       - attribute: 2
         modType: 100
-        value: 5
+        value: 4
         min: 4
         max: 7
-      skills: []
+      - attribute: 5
+        modType: 100
+        value: 21
+        min: 20
+        max: 25
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 11400000, guid: 7253e3f6348057847b74b69d971754e0, type: 2}
+      mobilitySkill: {fileID: 0}
   - AllowedItems: 04000000
     SlotName: Boots
     item:
@@ -57,15 +72,9 @@ MonoBehaviour:
       Id: -1
       attackRange: 0
       buffs: []
-      skills: []
-  - AllowedItems: 00000000
-    SlotName: SubWeapon
-    item:
-      Name: 
-      Id: -1
-      attackRange: 0
-      buffs: []
-      skills: []
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 0}
+      mobilitySkill: {fileID: 0}
   - AllowedItems: 05000000
     SlotName: Ring
     item:
@@ -73,7 +82,9 @@ MonoBehaviour:
       Id: -1
       attackRange: 0
       buffs: []
-      skills: []
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 0}
+      mobilitySkill: {fileID: 0}
   - AllowedItems: 06000000
     SlotName: Necklace
     item:
@@ -81,4 +92,6 @@ MonoBehaviour:
       Id: -1
       attackRange: 0
       buffs: []
-      skills: []
+      damageSkill: {fileID: 0}
+      reinforceSkill: {fileID: 0}
+      mobilitySkill: {fileID: 0}

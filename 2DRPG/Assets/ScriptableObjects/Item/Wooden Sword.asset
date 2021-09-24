@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 
   data:
     Name: Wooden Sword
-    Id: 4
+    Id: 3
     attackRange: 5
     buffs:
     - attribute: 0
@@ -27,5 +27,11 @@ MonoBehaviour:
       value: 0
       min: 2
       max: 4
-    skills:
-    - {fileID: 0}
+    - attribute: 5
+      modType: 100
+      value: 0
+      min: 10
+      max: 15
+    damageSkill: {fileID: 0}
+    reinforceSkill: {fileID: 0}
+    mobilitySkill: {fileID: 0}

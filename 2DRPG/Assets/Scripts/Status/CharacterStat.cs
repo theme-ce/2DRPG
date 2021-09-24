@@ -17,6 +17,7 @@ public class CharacterStat
             {
                 lastBaseValue = BaseValue;
                 _value = CalculateFinalValue();
+                ModifiedValue = _value;
                 _isDirty = false;
             }
             return _value;

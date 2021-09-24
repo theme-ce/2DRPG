@@ -7,30 +7,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     GameObject inventoryUI;
+    [SerializeField]
+    GameObject equipmentUI;
+    [SerializeField]
+    GameObject statusUI;
 
     [SerializeField]
     float moveSpeed = 5f;
 
-    [SerializeField]
-    GameObject currentTarget;
+    public InventoryObject inventory;
+    public GameObject currentTarget;
+    public bool isAttack = false;
 
     private NavMeshAgent agent;
-
     private float _stopDistance = 0.2f;
-
     private Vector2 _moveDestination;
-
     private Rigidbody2D rb;
-
     private Animator animator;
-
-    private float attackDuration = 1.5f;
-
     private PlayerStatus status;
-
-    public bool haveEnemy;
-
-    public InventoryObject inventory;
 
     void Awake()
     {
@@ -62,38 +56,24 @@ public class PlayerController : MonoBehaviour
 
     void ProcessInput()
     {
-        if (
-            Input.GetMouseButton(0) &&
-            !EventSystem.current.IsPointerOverGameObject()
-        )
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            RaycastHit2D hit =
-                Physics2D
-                    .Raycast(Camera
-                        .main
-                        .ScreenToWorldPoint(Input.mousePosition),
-                    Vector3.zero,
-                    Mathf.Infinity,
-                    64);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero, Mathf.Infinity, 64);
+
+            isAttack = false;
 
             if (hit.collider != null)
             {
                 currentTarget = hit.collider.gameObject;
-                _moveDestination =
-                    Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+                _moveDestination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 agent.stoppingDistance = status.attackRange;
-
                 agent.SetDestination (_moveDestination);
             }
             else
             {
                 currentTarget = null;
-                _moveDestination =
-                    Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+                _moveDestination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 agent.stoppingDistance = _stopDistance;
-
                 agent.SetDestination (_moveDestination);
             }
         }
@@ -102,32 +82,15 @@ public class PlayerController : MonoBehaviour
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
-    }
 
-    void Attack()
-    {
-        if(currentTarget != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            currentTarget.GetComponent<EnemyController>().TakeDamage(2);
+            equipmentUI.SetActive(!equipmentUI.activeSelf);
         }
-    }
 
-    IEnumerator AttackAnim()
-    {
-        while (true)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("Attack");
-
-            if (currentTarget != null)
-            {
-                animator.SetTrigger("BasicAttack");
-            }
-            else
-            {
-                break;
-            }
-
-            yield return new WaitForSeconds(attackDuration);
+            statusUI.SetActive(!statusUI.activeSelf);
         }
     }
 
@@ -148,15 +111,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
 
-            if (currentTarget != null && !haveEnemy)
+            if (currentTarget != null)
             {
-                haveEnemy = true;
-                Debug.Log("Start Attack");
-                StartCoroutine(AttackAnim());
+                isAttack = true;
             }
-            else if (currentTarget == null && haveEnemy)
+            else if (currentTarget == null)
             {
-                haveEnemy = false;
+                isAttack = false;
             }
         }
         else

@@ -21,7 +21,9 @@ public class Item
     public int Id = -1;
     public float attackRange;
     public ItemBuff[] buffs;
-    public SkillObject[] skills;
+    public DamageSkill damageSkill;
+    public ReinforceSkill reinforceSkill;
+    public MobilitySkill mobilitySkill;
     public Item()
     {
         Name = "";
@@ -41,7 +43,9 @@ public class Item
                 modType = item.data.buffs[i].modType
             };
         }
-        skills = new SkillObject[item.data.skills.Length];
+        damageSkill = item.data.damageSkill;
+        reinforceSkill = item.data.reinforceSkill;
+        mobilitySkill = item.data.mobilitySkill;
     }
 }
 

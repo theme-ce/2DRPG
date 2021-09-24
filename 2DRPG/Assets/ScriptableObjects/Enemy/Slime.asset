@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   name: Slime
-  maxHp: 10
+  maxHp: 20
   attackDamage: 2
   attackRange: 3
   defense: 2
   dodge: 2
-  detectionRadius: 3
+  detectionRadius: 10
+  moveSpeed: 5
+  expDrop: 20
+  goldDrop: 10
+  items:
+  - {fileID: 11400000, guid: 8e5dcbf44f568af47a338223e7959bb4, type: 2}

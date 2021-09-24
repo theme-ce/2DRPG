@@ -1,30 +1,95 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public PlayerLevel level;
     public EquipmentObject equipment;
+    public ReinforceSkillControl reinforceSkill;
+    public Text hpBarText;
+    public Image hpBar;
     public CharacterStat[] stats;
     public DisplayEquipment displayEquipment;
 
-    public int currentHp;
-    public int maxHp;
-    public int currentMp;
-    public int maxMp;
-    public int attackDamage;
-    public int defense;
-    public int dodge;
-    public int crit;
+    public float currentHp;
+    public float currentMP;
     public float attackRange;
+
+    public float GetSTR { get { return STR.Value; } }
+    public float GetDEX { get { return DEX.Value; } }
+    public float GetVIT { get { return VIT.Value; } }
+    public float GetINT { get { return INT.Value; } }
+    public float GetLUK { get { return LUK.Value; } }
+    public float GetHP { get { return HP.Value; } }
+    public float GetMP { get { return MP.Value; } }
+    public float GetATK { get { return ATK.Value; } }
+    public float GetDEF { get { return DEF.Value; } }
+    public float GetCRIT { get { return CRIT.Value; } }
+    
+    private CharacterStat STR;
+    private CharacterStat DEX;
+    private CharacterStat VIT;
+    private CharacterStat INT;
+    private CharacterStat LUK;
+    private CharacterStat HP;
+    private CharacterStat MP;
+    private CharacterStat ATK;
+    private CharacterStat DEF;
+    private CharacterStat CRIT;
 
     void Start()
     {
+        StatusManage();
+
         for (int i = 0; i < equipment.Container.Count; i++)
         {
             equipment.Container[i].OnBeforeUpdated += OnUnEquipItem;
             equipment.Container[i].OnAfterUpdated += OnEquipItem;
             OnEquipItem(equipment.Container[i]);
+        }
+
+        currentHp = HP.Value;
+    }
+
+    void StatusManage()
+    {
+        for (int i = 0; i < stats.Length; i++)
+        {
+            switch(stats[i].type)
+            {
+                case Attributes.Strength:
+                    STR = stats[i];
+                    break;
+                case Attributes.Dexterity:
+                    DEX = stats[i];
+                    break;
+                case Attributes.Vitality:
+                    VIT = stats[i];
+                    break;
+                case Attributes.Intellect:
+                    INT = stats[i];
+                    break;
+                case Attributes.Lucky:
+                    LUK = stats[i];
+                    break;
+                case Attributes.MaxHealth:
+                    HP = stats[i];
+                    break;
+                case Attributes.MaxMana:
+                    MP = stats[i];
+                    break;
+                case Attributes.Attack:
+                    ATK = stats[i];
+                    break;
+                case Attributes.Defense:
+                    DEF = stats[i];
+                    break;
+                case Attributes.Crit:
+                    CRIT = stats[i];
+                    break;
+            }
         }
     }
 
@@ -34,18 +99,21 @@ public class PlayerStatus : MonoBehaviour
 
         for (int i = 0; i < slot.item.buffs.Length; i++)
         {
-            for (int k = 0; k < stats.Length; k++)
+            for (int j = 0; j < stats.Length; j++)
             {
-                stats[k].ModifiedValue = stats[k].BaseValue;
-                stats[k].RemoveAllModifiersFromSource(slot.item);
-                stats[k].ModifiedValue = stats[k].Value;
+                stats[j].RemoveAllModifiersFromSource(slot.item);
+                stats[j].ModifiedValue = stats[j].Value;
             }
 
             if(slot.SlotName == "MainWeapon")
             {
-                attackRange = 0;
+                attackRange = 2;
             }
         }
+
+        reinforceSkill.skill = null;
+
+        UpdateStatus();
     }
 
     public void OnEquipItem(EquipmentSlot slot)
@@ -56,12 +124,12 @@ public class PlayerStatus : MonoBehaviour
 
         for (int i = 0; i < slot.item.buffs.Length; i++)
         {
-            for (int k = 0; k < stats.Length; k++)
+            for (int j = 0; j < stats.Length; j++)
             {
-                if(slot.item.buffs[i].attribute == stats[k].type)
+                if(slot.item.buffs[i].attribute == stats[j].type)
                 {
-                    stats[k].AddModifier(new StatModifier(slot.item.buffs[i].value, slot.item.buffs[i].modType, slot.item));
-                    stats[k].ModifiedValue = stats[k].Value;
+                    stats[j].AddModifier(new StatModifier(slot.item.buffs[i].value, slot.item.buffs[i].modType, slot.item));
+                    stats[j].ModifiedValue = stats[j].Value;
                 }
             }
 
@@ -69,6 +137,62 @@ public class PlayerStatus : MonoBehaviour
             {
                 attackRange = slot.item.attackRange;
             }
+
+        }
+
+        if(slot.item.reinforceSkill != null)
+        {
+            reinforceSkill.skill = slot.item.reinforceSkill;
+        }
+
+        UpdateStatus();
+    }
+
+    public void OnSkillDurationStart(ReinforceSkill skill)
+    {
+        for (int i = 0; i < skill.attributes.Length; i++)
+        {
+            for (int j = 0; j < stats.Length; j++)
+            {
+                if(skill.attributes[i].type == stats[j].type)
+                {
+                    stats[j].AddModifier(new StatModifier(skill.attributes[i].value, skill.attributes[i].modType, skill));
+                    stats[j].ModifiedValue = stats[j].Value;
+                }
+            }
+        }
+
+        UpdateStatus();
+    }
+
+    public void OnSkillDurationEnd(ReinforceSkill skill)
+    {
+        for (int i = 0; i < skill.attributes.Length; i++)
+        {
+            for (int j = 0; j < stats.Length; j++)
+            {
+                if(skill.attributes[i].type == stats[j].type)
+                {
+                    stats[j].RemoveAllModifiersFromSource(skill);
+                    stats[j].ModifiedValue = stats[j].Value;
+                }
+            }
+        }
+
+        UpdateStatus();
+    }
+
+    void UpdateStatus()
+    {
+        HP.BaseValue = (VIT.Value * 10) + (level.level * 30);
+        MP.BaseValue = (INT.Value * 4) + (level.level * 8);
+        ATK.BaseValue = (STR.Value * 2) + (level.level * 5);
+        DEF.BaseValue = (VIT.Value) + (level.level * 2);
+        CRIT.BaseValue = LUK.Value;
+
+        if(currentHp > HP.Value)
+        {
+            currentHp = HP.Value;
         }
     }
 }

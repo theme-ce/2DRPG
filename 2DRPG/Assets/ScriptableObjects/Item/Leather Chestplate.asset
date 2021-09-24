@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 
   data:
     Name: Leather Chestplate
-    Id: 2
+    Id: 1
     attackRange: 0
     buffs:
     - attribute: 2
@@ -27,4 +27,11 @@ MonoBehaviour:
       value: 0
       min: 4
       max: 7
-    skills: []
+    - attribute: 5
+      modType: 100
+      value: 0
+      min: 20
+      max: 25
+    damageSkill: {fileID: 0}
+    reinforceSkill: {fileID: 11400000, guid: 7253e3f6348057847b74b69d971754e0, type: 2}
+    mobilitySkill: {fileID: 0}

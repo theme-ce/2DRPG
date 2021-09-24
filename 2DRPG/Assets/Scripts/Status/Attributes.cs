@@ -4,5 +4,10 @@ public enum Attributes
     Dexterity,
     Vitality,
     Intellect,
-    Lucky
+    Lucky,
+    MaxHealth,
+    MaxMana,
+    Attack,
+    Defense,
+    Crit
 }

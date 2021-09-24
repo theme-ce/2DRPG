@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpriteLibrary
   m_EditorClassIdentifier: 
   m_Labels:
-  - m_Name: ChestPlate
-    m_Hash: -755379307
+  - m_Name: Body
+    m_Hash: 2073732236
     m_CategoryList:
     - m_Name: Default
       m_Hash: 753088835
@@ -22,3 +22,45 @@ MonoBehaviour:
     - m_Name: Leather Chestplate
       m_Hash: 1328161397
       m_Sprite: {fileID: -4844084591605179700, guid: df638114f25d9c749b2eec270f4eb951, type: 3}
+  - m_Name: LeftArmUpper
+    m_Hash: 1570765050
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: 6727960070108542923, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: RightArmUpper
+    m_Hash: -2032148553
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -8858482712318160670, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: Head
+    m_Hash: 130111906
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -3080281712954392458, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: LeftArmLower
+    m_Hash: 1029332037
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -3373573324428874341, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: RightArmLower
+    m_Hash: -434472184
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -2124390244772220598, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: LeftLeg
+    m_Hash: 101577729
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -5249365945357015506, guid: 56865e0e17152f246a162452d821312b, type: 3}
+  - m_Name: RightLeg
+    m_Hash: -2042820100
+    m_CategoryList:
+    - m_Name: Default
+      m_Hash: 753088835
+      m_Sprite: {fileID: -2680803056614855685, guid: 56865e0e17152f246a162452d821312b, type: 3}

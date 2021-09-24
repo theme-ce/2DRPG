@@ -6,12 +6,20 @@ using UnityEngine;
 public class EnemyObject : ScriptableObject
 {
     public new string name;
-
+    
+    [Header("Status: ")]
     public float maxHp;
     public float attackDamage;
     public float attackRange;
     public float defense;
     public float dodge;
 
+    [Header("Movement: ")]
     public float detectionRadius;
+    public float moveSpeed;
+
+    [Header("Drop: ")]
+    public float expDrop;
+    public int goldDrop;
+    public ItemObject[] items;
 }

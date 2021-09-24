@@ -13,15 +13,20 @@ public class DisplayEquipment : MonoBehaviour
     public EquipmentCategory[] categories;
 
     [Header("Equipment Slot: ")]
+    public EquipmentSlotManager helmet;
     public EquipmentSlotManager chestPlate;
     public EquipmentSlotManager weapon;
     public SpriteRenderer weaponSlot;
+    public EquipmentSlotManager boots;
+    public EquipmentSlotManager ring;
+    public EquipmentSlotManager necklace;
 
     public void EquipmentUpdate(EquipmentSlot slot)
     {
         switch(slot.SlotName)
         {
-            case "Helemt":
+            case "Helmet":
+                HelmetSlotUpdate();
                 break;
             case "ChestPlate":
                 ChestPlateSlotUpdate();
@@ -29,13 +34,14 @@ public class DisplayEquipment : MonoBehaviour
             case "MainWeapon":
                 WeaponSlotUpdate();
                 break;
-            case "SubWeapon":
-                break;
             case "Boots":
+                BootsSlotUpdate();
                 break;
             case "Ring":
+                RingSlotUpdate();
                 break;
             case "Necklace":
+                NecklaceSlotUpdate();
                 break;
         }
     }
@@ -47,11 +53,11 @@ public class DisplayEquipment : MonoBehaviour
 
         if(chestPlate.slot.item.Id > -1)
         {
-            categories[0].resolver.SetCategoryAndLabel("ChestPlate", chestPlate.slot.item.Name);
+            categories[0].resolver.SetCategoryAndLabel("Body", chestPlate.slot.item.Name);
         }
         else
         {
-            categories[0].resolver.SetCategoryAndLabel("ChestPlate", "Default");
+            categories[0].resolver.SetCategoryAndLabel("Body", "Default");
         }
 
         chestPlate.SlotDisplayUpdate();
@@ -70,5 +76,25 @@ public class DisplayEquipment : MonoBehaviour
             weaponSlot.sprite = null;
         }
         weapon.SlotDisplayUpdate();
+    }
+
+    public void HelmetSlotUpdate()
+    {
+        helmet.SlotDisplayUpdate();
+    }
+
+    public void BootsSlotUpdate()
+    {
+        boots.SlotDisplayUpdate();
+    }
+
+    public void RingSlotUpdate()
+    {
+        ring.SlotDisplayUpdate();
+    }
+
+    public void NecklaceSlotUpdate()
+    {
+        necklace.SlotDisplayUpdate();
     }
 }

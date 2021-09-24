@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Leather Shoes
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 0}
+  itemDisplay: {fileID: 0}
   stackable: 0
   type: 4
   description: 
@@ -21,4 +22,6 @@ MonoBehaviour:
     Id: 1
     attackRange: 0
     buffs: []
-    skills: []
+    damageSkill: {fileID: 0}
+    reinforceSkill: {fileID: 0}
+    mobilitySkill: {fileID: 0}

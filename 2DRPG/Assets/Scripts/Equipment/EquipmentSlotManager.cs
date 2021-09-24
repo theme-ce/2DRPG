@@ -36,7 +36,7 @@ public class EquipmentSlotManager : MonoBehaviour
 
     public void OnClickEquipment()
     {
-        var obj = Instantiate(itemInfo, Vector3.zero, Quaternion.identity, transform.parent.parent.parent.parent.parent);
+        var obj = Instantiate(itemInfo, Vector3.zero, Quaternion.identity, transform.parent.parent.parent.parent);
 
         obj.GetComponent<ItemInfo>().item = this.slot.item;
         obj.GetComponent<ItemInfo>().fromInventory = false;

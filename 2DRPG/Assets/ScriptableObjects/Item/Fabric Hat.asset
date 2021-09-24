@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Fabric Hat
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 0}
+  itemDisplay: {fileID: 0}
   stackable: 0
   type: 2
   description: 
   data:
     Name: Fabirc Hat
-    Id: 2
+    Id: 0
+    attackRange: 0
     buffs: []
+    damageSkill: {fileID: 0}
+    reinforceSkill: {fileID: 0}
+    mobilitySkill: {fileID: 0}
