@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyTypes
+{
+    Friendly,
+    Aggressive,
+}
+
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Create New Enemy")]
 public class EnemyObject : ScriptableObject
 {
@@ -13,8 +19,10 @@ public class EnemyObject : ScriptableObject
     public float attackRange;
     public float defense;
     public float dodge;
+    public float crit;
 
     [Header("Movement: ")]
+    public EnemyTypes type;
     public float detectionRadius;
     public float moveSpeed;
 

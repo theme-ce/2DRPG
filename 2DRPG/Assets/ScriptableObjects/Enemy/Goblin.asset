@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   name: Goblin
-  maxHp: 40
+  maxHp: 100
   attackDamage: 5
   attackRange: 5
   defense: 5
-  dodge: 0
+  dodge: 20
+  crit: 20
+  type: 1
   detectionRadius: 10
   moveSpeed: 6
   expDrop: 30

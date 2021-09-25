@@ -27,11 +27,6 @@ MonoBehaviour:
       value: 0
       min: 2
       max: 4
-    - attribute: 5
-      modType: 100
-      value: 0
-      min: 10
-      max: 15
     damageSkill: {fileID: 0}
     reinforceSkill: {fileID: 0}
     mobilitySkill: {fileID: 0}

@@ -1,6 +1,7 @@
 public enum Attributes
 {
     Strength,
+    Agility,
     Dexterity,
     Vitality,
     Intellect,
@@ -9,5 +10,9 @@ public enum Attributes
     MaxMana,
     Attack,
     Defense,
-    Crit
+    Crit,
+    CritDMG,
+    Flee,
+    Hit,
+    AttackSpeed
 }

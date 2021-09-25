@@ -22,12 +22,12 @@ MonoBehaviour:
     Id: 1
     attackRange: 0
     buffs:
-    - attribute: 2
+    - attribute: 3
       modType: 100
       value: 0
       min: 4
       max: 7
-    - attribute: 5
+    - attribute: 6
       modType: 100
       value: 0
       min: 20

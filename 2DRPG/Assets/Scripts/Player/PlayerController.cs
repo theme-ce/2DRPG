@@ -6,13 +6,6 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    GameObject inventoryUI;
-    [SerializeField]
-    GameObject equipmentUI;
-    [SerializeField]
-    GameObject statusUI;
-
-    [SerializeField]
     float moveSpeed = 5f;
 
     public InventoryObject inventory;
@@ -76,21 +69,6 @@ public class PlayerController : MonoBehaviour
                 agent.stoppingDistance = _stopDistance;
                 agent.SetDestination (_moveDestination);
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            equipmentUI.SetActive(!equipmentUI.activeSelf);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            statusUI.SetActive(!statusUI.activeSelf);
         }
     }
 

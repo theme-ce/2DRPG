@@ -27,11 +27,11 @@ MonoBehaviour:
         value: 3
         min: 2
         max: 4
-      - attribute: 5
+      - attribute: 14
         modType: 100
-        value: 10
-        min: 10
-        max: 15
+        value: 1
+        min: 2
+        max: 4
       damageSkill: {fileID: 0}
       reinforceSkill: {fileID: 0}
       mobilitySkill: {fileID: 0}
@@ -52,14 +52,14 @@ MonoBehaviour:
       Id: 1
       attackRange: 0
       buffs:
-      - attribute: 2
+      - attribute: 3
         modType: 100
-        value: 4
+        value: 5
         min: 4
         max: 7
-      - attribute: 5
+      - attribute: 6
         modType: 100
-        value: 21
+        value: 23
         min: 20
         max: 25
       damageSkill: {fileID: 0}

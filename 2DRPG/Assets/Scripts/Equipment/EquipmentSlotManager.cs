@@ -4,14 +4,11 @@ using UnityEngine.UI;
 public class EquipmentSlotManager : MonoBehaviour
 {
     public EquipmentSlot slot;
-
     public Image uiItem;
-
     public ItemObject itemObject;
-
     public GameObject itemInfo;
-
     public GameObject button;
+    public Transform parent;
 
     public void SlotDisplayUpdate()
     {
@@ -36,7 +33,9 @@ public class EquipmentSlotManager : MonoBehaviour
 
     public void OnClickEquipment()
     {
-        var obj = Instantiate(itemInfo, Vector3.zero, Quaternion.identity, transform.parent.parent.parent.parent);
+        if(parent.childCount > 0) { Destroy(parent.GetChild(0).gameObject); }
+
+        var obj = Instantiate(itemInfo, Vector3.zero, Quaternion.identity, parent);
 
         obj.GetComponent<ItemInfo>().item = this.slot.item;
         obj.GetComponent<ItemInfo>().fromInventory = false;

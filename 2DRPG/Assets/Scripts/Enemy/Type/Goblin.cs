@@ -15,31 +15,45 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-        if(controller.agent.velocity.magnitude > 0)
+        if (controller.player)
         {
-            animator.SetBool("Attack", false);
-            animator.SetFloat("Speed", 1);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0);
-
-            if(controller.player != null)
+            if ((controller.player.transform.position - transform.position).magnitude > controller.enemy.attackRange)
             {
-                animator.SetBool("Attack", true);
+                if (controller.agent.velocity.magnitude > 0)
+                {
+                    animator.SetBool("Attack", false);
+                    animator.SetFloat("Speed", 1);
+                }
+                else
+                {
+                    animator.SetFloat("Speed", 0);
+                }
             }
             else
             {
-                animator.SetBool("Attack", false);
+                animator.SetFloat("Speed", 0);
+
+                if (controller.player != null)
+                {
+                    animator.SetBool("Attack", true);
+                }
+                else
+                {
+                    animator.SetBool("Attack", false);
+                }
             }
         }
-    }
-
-    void Damage()
-    {
-        if(controller.player != null)
+        else
         {
-            controller.player.GetComponent<PlayerCombat>().TakeDamage(controller.enemy.attackDamage);
+            if (controller.agent.velocity.magnitude > 0)
+            {
+                animator.SetBool("Attack", false);
+                animator.SetFloat("Speed", 1);
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0);
+            }
         }
     }
 }

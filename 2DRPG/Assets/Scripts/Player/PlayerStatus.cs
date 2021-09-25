@@ -18,6 +18,7 @@ public class PlayerStatus : MonoBehaviour
     public float attackRange;
 
     public float GetSTR { get { return STR.Value; } }
+    public float GetAGI { get { return AGI.Value; } }
     public float GetDEX { get { return DEX.Value; } }
     public float GetVIT { get { return VIT.Value; } }
     public float GetINT { get { return INT.Value; } }
@@ -27,8 +28,13 @@ public class PlayerStatus : MonoBehaviour
     public float GetATK { get { return ATK.Value; } }
     public float GetDEF { get { return DEF.Value; } }
     public float GetCRIT { get { return CRIT.Value; } }
+    public float GetCRITDMG { get { return CRITDMG.Value; } }
+    public float GetFLEE { get { return FLEE.Value; } }
+    public float GetHIT { get { return HIT.Value; } }
+    public float GetATKSPEED { get { return ATKSPEED.Value; } }
     
     private CharacterStat STR;
+    private CharacterStat AGI;
     private CharacterStat DEX;
     private CharacterStat VIT;
     private CharacterStat INT;
@@ -38,6 +44,10 @@ public class PlayerStatus : MonoBehaviour
     private CharacterStat ATK;
     private CharacterStat DEF;
     private CharacterStat CRIT;
+    private CharacterStat CRITDMG;
+    private CharacterStat FLEE;
+    private CharacterStat HIT;
+    private CharacterStat ATKSPEED;
 
     void Start()
     {
@@ -50,6 +60,7 @@ public class PlayerStatus : MonoBehaviour
             OnEquipItem(equipment.Container[i]);
         }
 
+        UpdateStatus();
         currentHp = HP.Value;
     }
 
@@ -61,6 +72,9 @@ public class PlayerStatus : MonoBehaviour
             {
                 case Attributes.Strength:
                     STR = stats[i];
+                    break;
+                case Attributes.Agility:
+                    AGI = stats[i];
                     break;
                 case Attributes.Dexterity:
                     DEX = stats[i];
@@ -88,6 +102,18 @@ public class PlayerStatus : MonoBehaviour
                     break;
                 case Attributes.Crit:
                     CRIT = stats[i];
+                    break;
+                case Attributes.CritDMG:
+                    CRITDMG = stats[i];
+                    break;
+                case Attributes.Flee:
+                    FLEE = stats[i];
+                    break;
+                case Attributes.Hit:
+                    HIT = stats[i];
+                    break;
+                case Attributes.AttackSpeed:
+                    ATKSPEED = stats[i];
                     break;
             }
         }
@@ -188,7 +214,19 @@ public class PlayerStatus : MonoBehaviour
         MP.BaseValue = (INT.Value * 4) + (level.level * 8);
         ATK.BaseValue = (STR.Value * 2) + (level.level * 5);
         DEF.BaseValue = (VIT.Value) + (level.level * 2);
-        CRIT.BaseValue = LUK.Value;
+        CRIT.BaseValue = LUK.Value / 2f;
+        FLEE.BaseValue = Mathf.Round(AGI.Value / 1.5f);
+        HIT.BaseValue = DEX.Value / 1.5f;
+        ATKSPEED.BaseValue = 1 + (AGI.Value / 100f);
+
+        HP.ModifiedValue = HP.Value;
+        MP.ModifiedValue = MP.Value;
+        ATK.ModifiedValue = ATK.Value;
+        DEF.ModifiedValue = DEF.Value;
+        CRIT.ModifiedValue = CRIT.Value;
+        FLEE.ModifiedValue = Mathf.Round(FLEE.Value);
+        HIT.ModifiedValue = HIT.Value;
+        ATKSPEED.ModifiedValue = ATKSPEED.Value;
 
         if(currentHp > HP.Value)
         {
