@@ -71,7 +71,7 @@ public class PlayerUI : MonoBehaviour
         atkText.text = "Attack : " + status.GetATK.ToString();
         defText.text = "Defense : " + status.GetDEF.ToString();
         critText.text = "Critical : " + status.GetCRIT.ToString() + " %";
-        critDmgText.text = "Critical Damage : " + status.GetCRITDMG.ToString() + " %";
+        critDmgText.text = "Critical Damage : " + (150 + status.GetCRITDMG).ToString() + " %";
         hitText.text = "Hit : " + status.GetHIT.ToString() + " %";
         fleeText.text = "Flee : " + status.GetFLEE.ToString() + " %";
         atkSpeedText.text = "Attack Speed : " + status.GetATKSPEED.ToString();

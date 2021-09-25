@@ -215,9 +215,10 @@ public class PlayerStatus : MonoBehaviour
         ATK.BaseValue = (STR.Value * 2) + (level.level * 5);
         DEF.BaseValue = (VIT.Value) + (level.level * 2);
         CRIT.BaseValue = LUK.Value / 2f;
+        CRITDMG.BaseValue = LUK.Value / 4f;
         FLEE.BaseValue = Mathf.Round(AGI.Value / 1.5f);
         HIT.BaseValue = DEX.Value / 1.5f;
-        ATKSPEED.BaseValue = 1 + (AGI.Value / 100f);
+        ATKSPEED.BaseValue = AGI.Value / 2f;
 
         HP.ModifiedValue = HP.Value;
         MP.ModifiedValue = MP.Value;

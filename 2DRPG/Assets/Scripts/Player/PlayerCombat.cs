@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         if(status.GetCRIT > Random.Range(0f, 100f))
         {
             isCrit = true;
-            dmg = Mathf.Floor(dmg * 1.5f);
+            dmg = Mathf.Floor(dmg * ((150 + status.GetCRITDMG) / 100f));
         }
 
         if(playerController.currentTarget != null)
@@ -45,7 +45,8 @@ public class PlayerCombat : MonoBehaviour
 
     void AutoAttack()
     {
-        animator.SetFloat("AttackSpeed", status.GetATKSPEED);
+        float attackSpeed = 1 + (status.GetATKSPEED / 100f);
+        animator.SetFloat("AttackSpeed", attackSpeed);
 
         if(playerController.isAttack)
         {
