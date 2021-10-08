@@ -29,7 +29,22 @@ MonoBehaviour:
         max: 4
       - attribute: 14
         modType: 100
-        value: 1
+        value: 20
+        min: 2
+        max: 4
+      - attribute: 5
+        modType: 100
+        value: 20
+        min: 2
+        max: 4
+      - attribute: 11
+        modType: 100
+        value: 20
+        min: 2
+        max: 4
+      - attribute: 10
+        modType: 100
+        value: 30
         min: 2
         max: 4
       damageSkill: {fileID: 0}
